@@ -71,4 +71,32 @@ public class UserService {
 			}
 		}
 		
+		//QUERIES
+//			public List<User> byFirstname(String firstname){
+//				return userRepository.findAllByFirstnameIgnoreCase(firstname);
+//			}
+//			
+//			public List<User> byFirstnameOrLastname(String firstname, String lastname){
+//				return userRepository.findAllByFirstnameIgnoreCaseOrLastnameIgnoreCase(firstname, lastname);
+//			}
+		
+			
+			
+			
+			public List<User> getUserByFirstname(String firstname) {
+				return userRepository.findByFirstnameContainingIgnoreCase(firstname);
+			}
+			
+			public List<User> getUserByLastname(String lastname) {
+				return userRepository.findByLastnameContainingIgnoreCase(lastname);
+			}
+			
+			public List<User> getUserByMiddlename(String middlename) {
+				return userRepository.findByMiddlenameContainingIgnoreCase(middlename);
+			}
+			
+			public List<User> getUserByAll(String query){
+				return userRepository.findByFirstnameContainingIgnoreCaseOrLastnameContainingIgnoreCaseOrMiddlenameContainingIgnoreCase(query, query, query);
+			}
+			
 }

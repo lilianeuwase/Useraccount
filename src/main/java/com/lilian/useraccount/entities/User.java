@@ -3,6 +3,7 @@ package com.lilian.useraccount.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class User {
@@ -11,6 +12,7 @@ public class User {
 	@GeneratedValue
 	private Long id;
 	
+	@NotBlank(message="Firstname is Required*")
 	private String firstname;
 	private String lastname;
 	private String middlename;
